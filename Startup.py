@@ -1,23 +1,21 @@
 import numpy as np
 
-class NeuralNerwork:
-    def __init__(self, x, y):
-        self.input = x
-        self.weights1 = np.random.rand(self.input.shape[1], 4)
-        self.weights2 = np.random.rand(4, 1)
-        self.y = y
-        self.output = np.zeros(y.shape)
 
-        def feedforward(self):
-            self.layer1 = np.sigmoid(np.dot(self.input, self.weights1))
-            self.output = np.sigmoid(np.dot(self.layer1, self.weights2))
+Iris = [0, 1, 0]
+IrisTargets = [1, 1, 0]
 
-        def backpropagation(self):
-            # application of the chain rule to find derivative of the loss function with respect to weights2 and weights1
-            d_weights2 = np.dot(self.layer1.T, (2 * (self.y - self.output) * np.sigmoid_derivative(self.output)))
-            d_weights1 = np.dot(self.input.T, (np.dot(2 * (self.y - self.output) * np.sigmoid_derivative(self.output),
-                                                      self.weights2.T) * np.sigmoid_derivative(self.layer1)))
+# the "build" function parameters (build is used for supervised learning (competitive to come)):
+# Perceptron will call to the perceptron function
+# LM is the learning method, Split or cross are being developed
+# TF, you can choose the transfer function
+# Architecture, you can determine Feed Forward or Multi layer, Others to come
+# NoEpoch, you can choose the number of epochs the program will run, "Default" in the future will look at stopping...
+# ...conditions
+# Data inputs are targets need to be separated
 
-            # update the weights with the derivative (slope) of the loss function
-            self.weights1 += d_weights1
-            self.weights2 += d_weights2
+
+def build(perceptron, TF, LM, Architecture, NoEpoch, dataInput, targets):
+    Per = perceptron
+
+
+build(perceptron="perceptron", TF="ReLu", LM= "split", Architecture="FFNN", NoEpoch=100, dataInput=Iris, targets=IrisTargets)
