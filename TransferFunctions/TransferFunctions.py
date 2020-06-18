@@ -1,27 +1,25 @@
 import numpy as np
 
 
-class TransferFunctions:
+def act_fun(WeightedSum):
+    bias = -.5
+    return 1 / (1 + np.exp(WeightedSum + bias))
 
-    def __init__(self, TF, x):
-        self.TransferFunction = TF
-        self.WeightedSum = x
 
-    def act_fun(self):
-        bias = -.5
-        return 1 / (1 + np.exp(-self.WeightedSum + bias))
+def tanh(WeightedSum):
+    return (np.exp(WeightedSum) - np.exp(-WeightedSum)) / (np.exp(WeightedSum) + np.exp(-WeightedSum))
 
-    def tanh(self):
-        return (np.exp(self.WeightedSum) - np.exp(-self.WeightedSum)) / (np.exp(self.WeightedSum) + np.exp(-self.WeightedSum))
 
-    def ReLu(self):
-        # ReLu transfer function
-        return np.where(self.WeightedSum > 0, self.WeightedSum, 0)
+def ReLu(WeightedSum):
+    # ReLu transfer function
+    return np.where(WeightedSum > 0, WeightedSum, 0)
 
-    def softmax(self):
-        # Softmax Transfer function
-        return np.exp(self.WeightedSum) / np.sum(np.exp(self.WeightedSum))
 
-    def HardLimiter(self):
-        # Hard Limiter Transfer Function
-        pass
+def softmax(WeightedSum):
+    # Softmax Transfer function
+    return np.exp(WeightedSum) / np.sum(np.exp(WeightedSum))
+
+
+def HardLimiter(WeightedSum):
+    # Hard Limiter Transfer Function
+    pass
