@@ -1,13 +1,16 @@
+import numpy as np
 from FFNN import FeedForward
 
 # setting the simple problem of the boolean AND problem with bias input
-AND = [[1, 0, 0],
+AND = np.array([[1, 0, 0],
        [1, 0, 1],
        [1, 1, 0],
-       [1, 1, 1]]
+       [1, 1, 1]])
 
 # targets for the boolean AND problem
-ANDTargets = [0, 0, 0, 1]
+ANDTargets = np.array([0, 0, 0, 1])
+
+LM = "split"
 
 # the "build" function parameters (build is used for supervised learning (competitive to come)):
 # Perceptron will call to the perceptron function
@@ -20,11 +23,13 @@ ANDTargets = [0, 0, 0, 1]
 
 
 def build(TF, LM, Architecture, NoEpoch, dataInput, targets):
-    for i in NoEpoch:
+
+    for i in range(NoEpoch):
         weights = FeedForward.feed_forward(TF, dataInput, targets)
         print(weights)
 
 
+build("ReLu", "split", "FFNN", 20, AND, ANDTargets)
 
 
 
