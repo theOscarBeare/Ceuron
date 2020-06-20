@@ -1,9 +1,10 @@
 from TransferFunctions import TransferFunctions
+import numpy as np
 
 
 def perceptron(dataInput, TF, weights):
     output = int
-    weightedSum = dataInput * weights
+    weightedSum = np.dot(dataInput, weights)
 
     if TF == "softmax":
         output = TransferFunctions.softmax(weightedSum)
