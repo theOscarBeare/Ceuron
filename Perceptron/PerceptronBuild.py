@@ -19,4 +19,7 @@ def perceptron(dataInput, TF, weights):
         print("The Transfer function that you have entered is either not implemented or has been entered incorrectly"
               "the current functions are: softmax, ReLu, tanh, act_fun, hardlimiter")
 
+    # prints the Matrix output of the instances
+    print(output)
+
     return output

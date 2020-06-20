@@ -2,16 +2,12 @@ import numpy as np
 from Perceptron import PerceptronBuild
 
 
-def upDateWeights(squareErrorsMatrix, weights, row):
+def upDateWeights(squareErrorsMatrix, weights):
+
     learningRate = [0.35]
-
     verticalSum = squareErrorsMatrix.sum(axis=0)
-
-    print(verticalSum)
     dw = learningRate * verticalSum
-    print(dw)
     newWeights = weights * dw
-    print(newWeights)
 
     return newWeights
 
@@ -40,9 +36,9 @@ def feed_forward(TF, dataInput, targets):
     weightsRow = 0
 
     while weightsRow < 3:
-        newWeights[weightsRow] = upDateWeights(squareErrorsMatrix, weights[weightsRow], weightsRow)
-        weightsRow = weightsRow +1
+        newWeights = upDateWeights(squareErrorsMatrix, weights[weightsRow])
+        weightsRow = weightsRow + 1
 
     weights = newWeights
-
+    print(weights)
     return weights
