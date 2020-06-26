@@ -1,4 +1,5 @@
 import numpy as np
+from ADALINE import ADALINE1_9 as ADALINE
 from FFNN import FeedForward
 from MLFFNN import BackPropagation
 import pandas as pd
@@ -14,6 +15,10 @@ IrisDataInput = pd.read_excel("IrisDataInput.xlsx")
 
 # Receiving the Iris targets from an excel file using pandas
 IrisDataTarget = pd.read_excel("IrisDataTarget.xlsx")
+
+# A Vector representation of a one bit grid that is 4x3
+ExampleADALINEDataONE = np.array([1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1])
+
 
 #######################################################################################################################
 # the "build" function parameters (build is used for supervised learning (competitive to come)):
@@ -43,10 +48,21 @@ def buildMLFFNN(TF, NoEpoch, dataInput, targets):
 
         print("this is epoch number ", i+1)
 
+def buildADALINEOne_Nine(targetData, ErrorTolerance):
+
+    print("This is a simulation of an ADALINE Neural Network")
+
+    Output = ADALINE.ADALINENetwork(targetData, ErrorTolerance)
+
+    print(Output)
+
 
 # Example of how the buildFFNN function can be used to build a feed forward neural network
 buildFFNN("ReLu", 20, AND, ANDTargets)
 
 # Example of how the buildMLFFNN function can be used to build a neural network to classify the iris dataset
 buildMLFFNN("ReLu", 20, IrisDataInput, IrisDataTarget)
+
+# Example of the ADALINE network
+buildADALINEOne_Nine(ExampleADALINEDataONE, 2)
 
