@@ -17,7 +17,7 @@ IrisDataInput = pd.read_excel("IrisDataInput.xlsx")
 IrisDataTarget = pd.read_excel("IrisDataTarget.xlsx")
 
 # A Vector representation of a one bit grid that is 4x3
-ExampleADALINEDataONE = np.array([1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1])
+ExampleADALINEDataONE = np.array([1, 1, 1, -1, -1, 1, -1, -1, 1, -1, 1, 1, 1])
 
 
 #######################################################################################################################

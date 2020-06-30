@@ -2,7 +2,7 @@ import numpy as np
 from TransferFunctions import TransferFunctions
 
 def ADALINENetwork(InputData, ErrorTolerance):
-    BiasWeight = -6
+    BiasWeight = -11
 
     Zero = ZeroNeuron(InputData, BiasWeight)
     One = OneNeuron(InputData, BiasWeight)
@@ -21,61 +21,61 @@ def ADALINENetwork(InputData, ErrorTolerance):
 
 
 def ZeroNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1])
+    weight = np.array([BiasWeight, 1, 1, 1, 1, -1, 1, 1, -1, 1, 1, 1, 1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
 
 def OneNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1])
+    weight = np.array([BiasWeight, 1, 1, -1, -1, 1, -1, -1, 1, -1, 1, 1, 1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
 
 def TwoNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1])
+    weight = np.array([BiasWeight, 1, 1, 1, 1, -1, 1, -1, 1, -1, 1, 1, 1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
 
 def ThreeNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1])
+    weight = np.array([BiasWeight, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
 
 def FourNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0])
+    weight = np.array([BiasWeight, 1, -1, -1, 1, 1, -1, 1, 1, 1, -1, 1, -1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
 
 def FiveNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1])
+    weight = np.array([BiasWeight, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, 1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
 
 def SixNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1])
+    weight = np.array([BiasWeight, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, 1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
 
 def SevenNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight,1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0])
+    weight = np.array([BiasWeight,1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, -1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
 
 def EightNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1])
+    weight = np.array([BiasWeight, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, 1, 1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
 
 def NineNeuron(InputData, BiasWeight):
-    weight = np.array([BiasWeight, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1])
+    weight = np.array([BiasWeight, -1, 1, -1, 1, -1, 1, -1, 1, 1, 1, 1, 1])
     WeightedSum = np.dot(InputData, weight)
     Output = TransferFunctions.ReLu(WeightedSum)
     return Output
