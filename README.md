@@ -10,7 +10,7 @@ A ADALINE like Neural Network has been implemented. Returned at the end of the c
 import Ceuron
 
 Ceuron.buildFFNN("ReLu", 20, Data, Targets) # ReLu is the transfer function, 20 the number of epochs
-Ceuron.buildADALINEOne_Nine(targetData, ErrorTolerance)
+Ceuron.buildADALINE(targetData, ErrorTolerance, whichADALINE) # whichADALINE will allow the user to select what network they would like to use
 ```
 
 # Features to come
