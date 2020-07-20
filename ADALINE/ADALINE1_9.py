@@ -2,7 +2,7 @@ import numpy as np
 from TransferFunctions import TransferFunctions
 
 def ADALINENetwork(InputData, ErrorTolerance):
-    BiasWeight = -11
+    BiasWeight = -11 + ErrorTolerance
 
     Zero = ZeroNeuron(InputData, BiasWeight)
     One = OneNeuron(InputData, BiasWeight)

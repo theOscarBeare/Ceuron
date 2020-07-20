@@ -1,5 +1,5 @@
 import numpy as np
-from ADALINE import ADALINE1_9 as ADALINE
+from ADALINE import ADALINE1_9, ADALINE_Minus_Cross
 from FFNN import FeedForward
 from MLFFNN import BackPropagation
 import pandas as pd
@@ -19,6 +19,8 @@ IrisDataTarget = pd.read_excel("IrisDataTarget.xlsx")
 # A Vector representation of a one bit grid that is 4x3
 ExampleADALINEDataONE = np.array([1, 1, 1, -1, -1, 1, -1, -1, 1, -1, 1, 1, 1])
 
+# example of determining which ADALINE network to use
+whichADALINE = "NUMBER"
 
 #######################################################################################################################
 # the "build" function parameters (build is used for supervised learning (competitive to come)):
@@ -48,11 +50,17 @@ def buildMLFFNN(TF, NoEpoch, dataInput, targets):
 
         print("this is epoch number ", i+1)
 
-def buildADALINEOne_Nine(targetData, ErrorTolerance):
+def buildADALINE(targetData, ErrorTolerance, whichADALINE):
 
     print("This is a simulation of an ADALINE Neural Network")
+    Output = []
 
-    Output = ADALINE.ADALINENetwork(targetData, ErrorTolerance)
+    if whichADALINE == "NUMBER":
+        Output = ADALINE1_9.ADALINENetwork(targetData, ErrorTolerance)
+    elif whichADALINE == "CROSSMINUS":
+        Output = ADALINE_Minus_Cross.ADALINENetwork(targetData, ErrorTolerance)
+    else:
+        print("You have entered an invalid ADALINE set up")
 
     print(Output)
 
@@ -64,5 +72,5 @@ buildFFNN("ReLu", 20, AND, ANDTargets)
 buildMLFFNN("ReLu", 20, IrisDataInput, IrisDataTarget)
 
 # Example of the ADALINE network
-buildADALINEOne_Nine(ExampleADALINEDataONE, 2)
+buildADALINE(ExampleADALINEDataONE, 2, whichADALINE)
 
